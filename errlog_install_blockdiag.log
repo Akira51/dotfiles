@@ -1,0 +1,38 @@
+W: pydist:176: Cannot find installed package that provides ordereddict. Using python-ordereddict as package name. Please add "ordereddict correct_package_name" line to debian/pydist-overrides to override it if this is incorrect.
+   dh_usrlocal -O--buildsystem=python_distutils
+      dh_link -O--buildsystem=python_distutils
+         dh_compress -O--buildsystem=python_distutils
+	    dh_fixperms -O--buildsystem=python_distutils
+	       dh_strip -O--buildsystem=python_distutils
+	          dh_makeshlibs -O--buildsystem=python_distutils
+		     dh_shlibdeps -O--buildsystem=python_distutils
+		        dh_installdeb -O--buildsystem=python_distutils
+			   dh_gencontrol -O--buildsystem=python_distutils
+			   dpkg-gencontrol: warning: package python-blockdiag: unused substitution variable ${python:Versions}
+			   dpkg-gencontrol: warning: package python-blockdiag: unused substitution variable ${python:Provides}
+			      dh_md5sums -O--buildsystem=python_distutils
+			         dh_builddeb -O--buildsystem=python_distutils
+				 dpkg-deb: `../python-blockdiag_1.1.3-1_all.deb' にパッケージ `python-blockdiag' を構築しています。
+				  dpkg-genchanges -b >../blockdiag_1.1.3-1_i386.changes
+				  dpkg-genchanges: binary-only upload - not including any source code
+				   dpkg-source --after-build blockdiag-1.1.3
+				   dpkg-buildpackage: binary only upload (no source included)
+				   未選択パッケージ python-blockdiag を選択しています。
+				   (データベースを読み込んでいます ... 現在 194399 個のファイルとディレクトリがインストールされています。)
+				   (python-blockdiag_1.1.3-1_all.deb から) python-blockdiag を展開しています...
+				   dpkg: 依存関係の問題により python-blockdiag の設定ができません:
+				    python-blockdiag は以下に依存 (depends) します: python-ordereddict ...しかし:
+				      パッケージ python-ordereddict はまだインストールされていません。
+				      dpkg: python-blockdiag の処理中にエラーが発生しました (--install):
+				       依存関係の問題 - 設定を見送ります
+				       以下のパッケージの処理中にエラーが発生しました:
+				        python-blockdiag
+					Traceback (most recent call last):
+					  File "/usr/bin/pypi-install", line 142, in <module>
+					      main()
+					        File "/usr/bin/pypi-install", line 134, in main
+						    subprocess.check_call(cmd, shell=True)
+						      File "/usr/lib/python2.7/subprocess.py", line 511, in check_call
+						          raise CalledProcessError(retcode, cmd)
+							  subprocess.CalledProcessError: Command 'sudo dpkg -i *.deb' returned non-zero exit status 1
+
